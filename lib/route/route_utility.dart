@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice_base/page_widgets/route/routes.dart';
+import 'package:flutter_practice_base/route/routes.dart';
 import 'package:go_router/go_router.dart';
 
 enum RouteTransition { fade, slideFromTop, slideFromRight, slideFromLeft, scale, none }

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_practice_base/page_widgets/route/routes.dart';
+import 'package:flutter_practice_base/route/routes.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
