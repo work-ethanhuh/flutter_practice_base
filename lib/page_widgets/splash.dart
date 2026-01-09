@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
       if (_remaining <= 0) {
         timer.cancel();
         if (!mounted) return;
-        context.goNamed(Routes.dashboard.name);
+        context.goNamed(Routes.dashboard);
         // context.goNamed(Routes.dashboard.name,
         //     extra: const RouteTransitionData(transition: RouteTransition.slideFromRight));
       }

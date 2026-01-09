@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice_base/route/routes.dart';
 import 'package:go_router/go_router.dart';
 
+extension RouteStringExtension on String {
+  String get name => this;
+
+  String get path {
+    if (this == Routes.splash) return '/';
+    if (startsWith('/')) return this;
+    return '/$this';
+  }
+}
+
 enum RouteTransition { fade, slideFromTop, slideFromRight, slideFromLeft, scale, none }
 
 class RouteTransitionData {
