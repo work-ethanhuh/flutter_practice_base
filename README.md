@@ -19,29 +19,33 @@ samples, guidance on mobile development, and a full API reference.
 
 ```
 lib/
+├─ main.dart
+│
 ├─ app/
 │  ├─ app.dart
 │  ├─ bootstrap.dart
 │  │
-│  ├─ router/
-│  │  ├─ app_router.dart
-│  │  ├─ app_routes.dart
-│  │  ├─ session_gate.dart          // interface (공통)
-│  │  └─ session_gate_dummy.dart    // 기본 구현 (공통)
+│  ├─ di/
+│  │  └─ app_scope.dart
 │  │
-│  └─ di/
-│     └─ app_scope.dart              // 공통 DI 엔트리
+│  └─ router/
+│     ├─ app_router.dart
+│     ├─ app_routes.dart
+│     ├─ session_gate.dart
+│     ├─ session_gate_dummy.dart
+│     └─ _internal/
+│        └─ route_utility.dart
 │
 ├─ core/
-│  ├─ network/
-│  │  ├─ dio_client.dart
-│  │  ├─ interceptors/
-│  │  │  ├─ auth_interceptor.dart
-│  │  │  └─ logging_interceptor.dart
-│  │
 │  ├─ auth/
 │  │  ├─ token_storage.dart
-│  │  └─ session_events.dart        // optional (401, logout)
+│  │  └─ session_events.dart
+│  │
+│  ├─ network/
+│  │  ├─ dio_client.dart
+│  │  └─ interceptors/
+│  │     ├─ auth_interceptor.dart
+│  │     └─ logging_interceptor.dart
 │  │
 │  ├─ error/
 │  │  ├─ app_exception.dart
@@ -51,38 +55,41 @@ lib/
 │     ├─ logger.dart
 │     └─ debouncer.dart
 │
-├─ features/
-│  └─ todo/                          // 예시 기능
-│     ├─ domain/
-│     │  ├─ entity/
-│     │  │  └─ todo.dart
-│     │  ├─ repository/
-│     │  │  └─ todo_repository.dart
-│     │  └─ usecase/
-│     │     └─ get_todos.dart
-│     │
-│     ├─ data/
-│     │  ├─ dto/
-│     │  │  └─ todo_dto.dart
-│     │  ├─ datasource/
-│     │  │  └─ todo_api.dart
-│     │  └─ repository/
-│     │     └─ todo_repository_impl.dart
-│     │
-│     ├─ presentation/
-│     │  ├─ state/
-│     │  │  ├─ todo_state.dart       // 상태 계약 (공통)
-│     │  │  └─ todo_actions.dart     // 액션 계약 (공통)
-│     │  │
-│     │  ├─ pages/
-│     │  │  └─ todo_page.dart        // 컨테이너 (브랜치별)
-│     │  │
-│     │  └─ widgets/
-│     │     └─ todo_view.dart        // 순수 UI (공통)
-│     │
-│     └─ feature_router.dart         // 선택 (라우트 등록)
-│
-└─ main.dart
+└─ features/
+   ├─ splash/
+   │  ├─ 1_domain/
+   │  ├─ 2_data/
+   │  ├─ 3_state/
+   │  ├─ 4_page/
+   │  │  └─ splash_page.dart
+   │  └─ 5_sub_widgets/
+   │
+   ├─ dashboard/
+   │  ├─ 1_domain/
+   │  ├─ 2_data/
+   │  ├─ 3_state/
+   │  ├─ 4_page/
+   │  │  └─ dashboard_page.dart
+   │  ├─ 5_sub_widgets/
+   │  │
+   │  ├─ home/
+   │  │  ├─ 1_domain/
+   │  │  ...
+   │  │
+   │  ├─ settings/
+   │  │  ├─ 1_domain/
+   │  │  ...
+   │  ...
+   ├─ common_widgets/
+   │  ├─ exam_widgets_1/
+   │  │  ├─ 1_domain/
+   │  │  ├─ 2_data/
+   │  │  ├─ 3_state/
+   │  │  ├─ 4_page/
+   │  │  └─ 5_sub_widgets/
+   │  └─ exam_func_2/
+   │     ...
+   ...
 ```
 
 간단한 설명

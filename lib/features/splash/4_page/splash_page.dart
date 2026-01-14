@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_practice_base/app/router/app_routes.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<Splash> createState() => _SplashState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashPageState extends State<SplashPage> {
   int _remaining = 5;
   Timer? _timer;
 
@@ -27,8 +27,6 @@ class _SplashState extends State<Splash> {
         timer.cancel();
         if (!mounted) return;
         context.goNamed(Routes.dashboard);
-        // context.goNamed(Routes.dashboard.name,
-        //     extra: const RouteTransitionData(transition: RouteTransition.slideFromRight));
       }
     });
   }

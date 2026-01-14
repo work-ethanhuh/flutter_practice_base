@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'router/app_router.dart';
+import 'di/app_scope.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -8,7 +8,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Practice Base Project',
-      routerConfig: appRouter,
+      routerConfig: AppScope.instance.router,
     );
   }
 }
