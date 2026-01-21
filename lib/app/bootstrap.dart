@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-import 'app.dart';
+import 'package:flutter/foundation.dart';
+import '../core_prev/config/app_config.dart';
 import 'di/app_scope.dart';
 
 Future<void> bootstrap() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await AppScope.init();
-
-  runApp(const App());
+  final config = kReleaseMode ? AppConfig.prod() : AppConfig.dev();
+  await AppScope.init(config);
 }
