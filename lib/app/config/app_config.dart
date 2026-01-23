@@ -1,29 +1,35 @@
-// lib/core/config/app_config.dart
-import '../network/api_target.dart';
+enum AppEnv { dev, prod }
+enum ApiTarget {
+  main,
+  // payment,
+  // analytics,
+}
 
 class AppConfig {
   const AppConfig({
+    required this.env,
     required this.baseUrls,
     this.enableNetworkLogging = false,
   });
 
-  /// 서버별 baseUrl 맵
+  final AppEnv env;
   final Map<ApiTarget, String> baseUrls;
-
   final bool enableNetworkLogging;
 
+  String get baseUrl => baseUrls[ApiTarget.main]!;
+
   factory AppConfig.dev() => const AppConfig(
+        env: AppEnv.dev,
         baseUrls: {
-          ApiTarget.main: 'https://dev.example.com',
-          // ApiTarget.payment: 'https://dev-pay.example.com',
+          ApiTarget.main: 'http://dev.practice.com',
         },
         enableNetworkLogging: true,
       );
 
   factory AppConfig.prod() => const AppConfig(
+        env: AppEnv.prod,
         baseUrls: {
-          ApiTarget.main: 'https://api.example.com',
-          // ApiTarget.payment: 'https://pay.example.com',
+          ApiTarget.main: 'http://prod.practice.com',
         },
         enableNetworkLogging: false,
       );

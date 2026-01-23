@@ -1,12 +1,9 @@
-// lib/core/network/interceptors/auth_interceptor.dart
-
 import 'dart:async';
 import 'package:dio/dio.dart';
 
 typedef AccessTokenProvider = FutureOr<String?> Function();
 
 /// refresh 수행 후 새로운 access token 을 돌려주는 핸들러
-/// - 아직 refresh API / secure storage가 없으니 "훅"만 열어둡니다.
 typedef RefreshTokenHandler = FutureOr<String?> Function();
 
 /// refresh 실패 / 401 지속 시 상위로 알리는 콜백
